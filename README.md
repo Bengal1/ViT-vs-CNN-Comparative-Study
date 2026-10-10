@@ -22,44 +22,45 @@ python main.py --model vit --dataset tiny_imagenet
 
 ## 🧪 Experimental Setup
 
-All experiments use the same training pipeline and evaluation procedure for the
-CNN and ViT within each dataset. The official test sets are kept separate from
-training and validation and are used only for final evaluation.
+All experiments use the same training and evaluation pipeline for the CNN and ViT within each dataset. The official test sets are kept separate from training and validation and are used only for final evaluation.
 
-| Dataset | Input Size | Train / Val Split | Batch Size | Optimizer | Learning Rate | Max Epochs | Early Stopping |
-| --- | ---: | ---: | ---: | --- | ---: | ---: | ---: |
-| MNIST | 28×28 | 85% / 15% | 64 | AdamW | 2e-4 | 200 | Patience 15 |
-| CIFAR-10 | 32×32 | 85% / 15% | 64 | AdamW | 2e-4 | 200 | Patience 15 |
-| Food-101 | 128×128 | 85% / 15% | 64 | AdamW | 2e-4 | 200* | Patience 15 |
-| Tiny ImageNet | 64×64 | 85% / 15% | 64 | AdamW | 2e-4 | 200 | Patience 15 |
+### Dataset Configuration
 
-\* Some Food-101 ViT experiments were continued beyond the initial training
-window from saved checkpoints.
+| Dataset | Input Size | Train / Val Split | Max Epochs |
+|---|---:|---:|---:|
+| MNIST | 28×28 | 85% / 15% | 200 |
+| CIFAR-10 | 32×32 | 85% / 15% | 200 |
+| Food-101 | 128×128 | 85% / 15% | 200* |
+| Tiny ImageNet | 64×64 | 85% / 15% | 200 |
+
+\* Some Food-101 ViT experiments were continued beyond the initial training window from saved checkpoints.
 
 ### Training Configuration
 
+Unless otherwise specified, the following settings are shared across experiments:
+
+- **Batch size:** `64`
 - **Optimizer:** AdamW
+- **Initial learning rate:** `2e-4`
 - **Weight decay:** `8e-2`
 - **Label smoothing:** `0.1`
 - **Gradient clipping:** maximum norm of `1.0`
 - **Learning-rate schedule:** 10-epoch linear warmup followed by cosine annealing
 - **Minimum learning rate:** `1e-6`
+- **Early stopping:** patience of `15` epochs
 - **Random seed:** `1755900008`
-- **Checkpoint selection:** best validation-performing checkpoint
+- **Checkpoint selection:** model with the best validation performance
 
 ### Data Processing
 
-MNIST and CIFAR-10 use dataset-specific normalization. Food-101 and Tiny
-ImageNet use stronger training augmentation, including random cropping,
-horizontal flipping, color jitter, RandAugment, and random erasing.
+Data preprocessing is adapted to the complexity of each dataset:
 
-Validation and test preprocessing is deterministic, and the same reproducible
-train/validation split is used for both architectures within each dataset.
+- **MNIST and CIFAR-10:** dataset-specific normalization
+- **Food-101 and Tiny ImageNet:** stronger training augmentation, including random cropping, horizontal flipping, color jitter, RandAugment, and random erasing
 
-> **Note:** CNN and ViT configurations are not parameter-matched. The study
-> compares the implemented versions of both architectures rather than a
-> strictly parameter-equivalent benchmark.
+Validation and test preprocessing is deterministic. The same reproducible train/validation split is used for both architectures within each dataset.
 
+> **Note:** The CNN and ViT are not parameter-matched. The study compares the implemented versions of both architectures rather than a strictly parameter-equivalent benchmark.
 
 ## 📊 Results
 
