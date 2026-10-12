@@ -12,6 +12,7 @@ A comparative study of Vision Transformers (ViT) and Convolutional Neural Networ
 
 This repository also showcases the [*Vision Transformer (ViT)*](https://en.wikipedia.org/wiki/Vision_transformer), providing insight into its core architectural ideas, training dynamics, and its ability to capture global relationships through self-attention. It offers a practical view of the strengths and limitations of ViTs, and how they differ from traditional convolutional approaches.
 
+📖 **Project write-up:** [CNN vs Vision Transformer: What I Learned Training Both From Scratch](https://www.linkedin.com/pulse/cnn-vs-vision-transformer-what-i-learned-training-both-or-ben-gal-00pce/)
 
 ## 🚀 Quick Start
 
