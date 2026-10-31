@@ -34,7 +34,7 @@ The experiments use four image-classification datasets with different input reso
 - **Food-101:** `128×128`
 - **Tiny ImageNet:** `64×64`
 
-For all datasets, the training data is split into **85% training / 15% validation**, with a maximum training window of **200 epochs**.
+For all datasets, the training data is split into **85% training / 15% validation**, with a training window of **200 epochs**.
 
 > Some Food-101 ViT experiments were continued beyond the initial training window from saved checkpoints.
 
