@@ -31,8 +31,8 @@ The experiments use four image-classification datasets with different input reso
 
 - **MNIST:** `28×28`
 - **CIFAR-10:** `32×32`
-- **Tiny ImageNet:** `64×64`
 - **Food-101:** `128×128`
+- **Tiny ImageNet:** `64×64`
 
 For all datasets, the training data is split into **85% training / 15% validation**, with a maximum training window of **200 epochs**.
 
