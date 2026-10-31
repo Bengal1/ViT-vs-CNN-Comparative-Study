@@ -25,32 +25,29 @@ python main.py --model vit --dataset tiny_imagenet
 
 All experiments use the same training and evaluation pipeline for the CNN and ViT within each dataset. The official test sets are kept separate from training and validation and are used only for final evaluation.
 
-### Dataset Configuration
+Dataset Configuration
+Dataset 	Input Size 	Train / Val Split 	Max Epochs
+MNIST 	28×28 	85% / 15% 	200
+CIFAR-10 	32×32 	85% / 15% 	200
+Food-101 	128×128 	85% / 15% 	200*
+Tiny ImageNet 	64×64 	85% / 15% 	200
 
-| Dataset | Input Size | Train / Val Split | Max Epochs |
-|---|---:|---:|---:|
-| MNIST | 28×28 | 85% / 15% | 200 |
-| CIFAR-10 | 32×32 | 85% / 15% | 200 |
-| Food-101 | 128×128 | 85% / 15% | 200* |
-| Tiny ImageNet | 64×64 | 85% / 15% | 200 |
-
-\* Some Food-101 ViT experiments were continued beyond the initial training window from saved checkpoints.
-
-### Training Configuration
+* Some Food-101 ViT experiments were continued beyond the initial training window from saved checkpoints.
+Training Configuration
 
 Unless otherwise specified, the following settings are shared across experiments:
 
-- **Batch size:** `64`
-- **Optimizer:** AdamW
-- **Initial learning rate:** `2e-4`
-- **Weight decay:** `8e-2`
-- **Label smoothing:** `0.1`
-- **Gradient clipping:** maximum norm of `1.0`
-- **Learning-rate schedule:** 10-epoch linear warmup followed by cosine annealing
-- **Minimum learning rate:** `1e-6`
-- **Early stopping:** patience of `15` epochs
-- **Random seed:** `1755900008`
-- **Checkpoint selection:** model with the best validation performance
+    Batch size: 64
+    Optimizer: AdamW
+    Initial learning rate: 2e-4
+    Weight decay: 8e-2
+    Label smoothing: 0.1
+    Gradient clipping: maximum norm of 1.0
+    Learning-rate schedule: 10-epoch linear warmup followed by cosine annealing
+    Minimum learning rate: 1e-6
+    Early stopping: patience of 15 epochs
+    Random seed: 1755900008
+    Checkpoint selection: model with the best validation performance
 
 ### Data Processing
 
