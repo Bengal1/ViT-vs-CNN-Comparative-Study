@@ -52,7 +52,6 @@ Unless otherwise specified, the following settings are shared across experiments
 - **Gradient clipping:** maximum norm of `1.0`
 - **Learning-rate schedule:** 10-epoch linear warmup followed by cosine annealing
 - **Minimum learning rate:** `1e-6`
-- **Random seed:** `1755900008`
 - **Checkpoint selection:** model with the best validation performance
 ### Data Processing
 
