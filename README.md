@@ -42,7 +42,6 @@ For all datasets, the training data is split into **85% training / 15% validatio
 
 Unless otherwise specified, the following settings are shared across experiments:
 
-- **Train / validation split:** `85% / 15%`
 - **Batch size:** `64`
 - **Maximum epochs:** `200`
 - **Early stopping:** patience of `15` epochs
